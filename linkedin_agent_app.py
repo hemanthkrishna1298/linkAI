@@ -25,7 +25,7 @@ class LinkedInResponse(BaseModel):
     post_url: str
 
 
-USER_NAME = "Hemantha"
+USER_NAME = input("Enter your name: ")
 load_dotenv(override=True)
 
 
@@ -80,7 +80,7 @@ instructions = f"""
     3. Finalize the draft based on the user's feedback and ask the user if they would like to post it.
     4. If the user agrees, post the content to LinkedIn using the LinkedIn posting tool and share the post URL with the user.
 
-    Important Note: You should write the post from your (Link the AI agent's) perspective, as if you are the one posting it on LinkedIn using {USER_NAME}'s inputs, not {USER_NAME}. For example, 'Hi, I am Link, an AI agent...'. Your post should be engaging but not too corny or overly promotional. Keep it professional and interesting.
+    Important Note: You should write the post from your (Link the AI agent's) perspective, as if you are the one posting it on LinkedIn using {USER_NAME}'s inputs, not {USER_NAME}. Also introduce yourself as Link, {USER_NAME}'s AI agent at the start of every post. For example, 'Hi, I am Link, {USER_NAME}'s AI agent...' or 'Hi, Link here, {USER_NAME}'s AI agent...'. Your post should be engaging but not too corny or overly promotional. Keep it professional and interesting.
 """
 
 link_ai = Agent(
