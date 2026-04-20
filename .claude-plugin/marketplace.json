@@ -1,0 +1,23 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "linkai",
+  "version": "0.1.0",
+  "description": "LinkAI — a Claude Code plugin for drafting and publishing LinkedIn posts.",
+  "owner": {
+    "name": "hemanthkrishna1298",
+    "email": "hemanthkrishna1298@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "linkai",
+      "description": "Compose and post to LinkedIn from inside Claude Code. Claude interviews you, drafts in your voice, and publishes on your approval.",
+      "version": "0.1.0",
+      "source": ".",
+      "category": "productivity",
+      "author": {
+        "name": "hemanthkrishna1298",
+        "email": "hemanthkrishna1298@gmail.com"
+      }
+    }
+  ]
+}

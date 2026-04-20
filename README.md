@@ -6,11 +6,14 @@ Tell Claude what you want to share; it interviews you, writes a post in your voi
 
 ## Install
 
+In Claude Code, add the marketplace and install the plugin:
+
 ```
-/plugin install https://github.com/hemanthkrishna1298/linkai
+/plugin marketplace add hemanthkrishna1298/linkAI
+/plugin install linkai@linkai
 ```
 
-Or clone the repo and copy the `skills/linkedin-posting/` directory into `~/.claude/skills/` if you prefer not to use the plugin system.
+Or clone the repo and copy `skills/linkedin-posting/` into `~/.claude/skills/` if you prefer to use it as a personal skill without the plugin system.
 
 ## Setup (first time)
 
