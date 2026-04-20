@@ -12,7 +12,7 @@
       "name": "linkai",
       "description": "Compose and post to LinkedIn from inside Claude Code. Claude interviews you, drafts in your voice, and publishes on your approval.",
       "version": "0.1.0",
-      "source": ".",
+      "source": "./plugins/linkai",
       "category": "productivity",
       "author": {
         "name": "hemanthkrishna1298",

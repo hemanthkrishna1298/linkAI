@@ -9,25 +9,30 @@ LinkAI — a Claude Code plugin that lets a user draft and publish LinkedIn post
 ## Layout
 
 ```
-.claude-plugin/plugin.json        # plugin manifest (lives here, not at root)
-README.md                         # user-facing intro + install instructions
-LICENSE                           # MIT
-skills/
-  linkedin-posting/
-    SKILL.md                      # Claude's playbook: onboarding → interview → draft → publish
-    SETUP.md                      # human-facing LinkedIn dev-app walkthrough
-    scripts/
-      linkai_auth.py              # OAuth helper: setup / login / status / logout
-      linkai_post.py              # POST /rest/posts with --text
+.claude-plugin/marketplace.json         # marketplace catalog, one plugin entry
+README.md                               # user-facing intro + install instructions
+LICENSE                                 # MIT
+plugins/
+  linkai/
+    .claude-plugin/plugin.json          # plugin manifest
+    skills/
+      linkedin-posting/
+        SKILL.md                        # Claude's playbook: onboarding → interview → draft → publish
+        SETUP.md                        # human-facing LinkedIn dev-app walkthrough
+        scripts/
+          linkai_auth.py                # OAuth helper: setup / login / status / logout
+          linkai_post.py                # POST /rest/posts with --text
 ```
+
+The plugin lives under `plugins/linkai/` because the marketplace schema requires plugin sources to be a subdirectory (starting with `./`), not the marketplace root itself.
 
 ## Running the scripts locally (without a plugin install)
 
 ```bash
-python skills/linkedin-posting/scripts/linkai_auth.py status
-python skills/linkedin-posting/scripts/linkai_auth.py setup --client-id ID --client-secret SECRET
-python skills/linkedin-posting/scripts/linkai_auth.py login
-python skills/linkedin-posting/scripts/linkai_post.py --text "hello"
+python plugins/linkai/skills/linkedin-posting/scripts/linkai_auth.py status
+python plugins/linkai/skills/linkedin-posting/scripts/linkai_auth.py setup --client-id ID --client-secret SECRET
+python plugins/linkai/skills/linkedin-posting/scripts/linkai_auth.py login
+python plugins/linkai/skills/linkedin-posting/scripts/linkai_post.py --text "hello"
 ```
 
 No dependencies to install. Standard library only. Python 3.9+.
