@@ -82,7 +82,6 @@ Wait for confirmation. If they hit a verification prompt or get stuck, help them
 **Step 2 — attach the two products.** Once they're in the app, tell them to open the **Products** tab. Ask them to confirm they're on it, then:
 - "Find *Sign In with LinkedIn using OpenID Connect* and click *Request access*. It's instant."
 - "Then find *Share on LinkedIn* and click *Request access*. Also instant."
-- "Do **not** request *Marketing Developer Platform* — different approval process, not needed here."
 
 Wait until both show "Added".
 

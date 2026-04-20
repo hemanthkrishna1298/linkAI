@@ -21,8 +21,6 @@ Open the **Products** tab on your app and request:
 1. **Sign In with LinkedIn using OpenID Connect** — approval is instant.
 2. **Share on LinkedIn** — approval is instant.
 
-Do not request the "Marketing Developer Platform" — that's a separate approval process for analytics partners and not needed here.
-
 Wait for both products to show "Added" (usually a few seconds).
 
 ## 3. Add the redirect URI
