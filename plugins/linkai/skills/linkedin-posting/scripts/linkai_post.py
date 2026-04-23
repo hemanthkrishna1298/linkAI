@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import subprocess
 import sys
 import time
@@ -26,6 +27,20 @@ CREDS_PATH = Path.home() / ".linkai" / "credentials.json"
 POSTS_URL = "https://api.linkedin.com/rest/posts"
 LINKEDIN_VERSION = "202604"
 
+# LinkedIn "Little Text Format" reserved characters — must be backslash-escaped in
+# `commentary`, otherwise the parser interprets them as mention/hashtag/markup syntax
+# and silently mangles the surrounding text (e.g. parens around a URL drop the URL).
+# `#` is handled separately so inline `#hashtags` still linkify.
+_LITTLE_TEXT_RESERVED = "|{}@[]()<>*_~"
+_BARE_HASH = re.compile(r"#(?![A-Za-z0-9])")
+
+
+def escape_commentary(text: str) -> str:
+    out = text.replace("\\", "\\\\")
+    for ch in _LITTLE_TEXT_RESERVED:
+        out = out.replace(ch, "\\" + ch)
+    return _BARE_HASH.sub(r"\\#", out)
+
 
 def load_creds() -> dict:
     if not CREDS_PATH.exists():
@@ -39,7 +54,7 @@ def load_creds() -> dict:
 def post_text(text: str, creds: dict) -> str:
     payload = {
         "author": f"urn:li:person:{creds['user_sub']}",
-        "commentary": text,
+        "commentary": escape_commentary(text),
         "visibility": "PUBLIC",
         "distribution": {
             "feedDistribution": "MAIN_FEED",
