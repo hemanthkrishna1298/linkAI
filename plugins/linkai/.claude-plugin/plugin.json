@@ -1,6 +1,6 @@
 {
   "name": "linkai",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Compose and post to LinkedIn from inside Claude Code. Claude interviews you, drafts in your voice, and publishes on your approval.",
   "author": {
     "name": "hemanthkrishna1298",
